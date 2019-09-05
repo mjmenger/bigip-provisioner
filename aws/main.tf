@@ -63,9 +63,18 @@ data "template_file" "vm_onboard" {
   }
 }
 
+data "aws_ami" "latestbigip" {
+  most_recent      = true
+  owners           = ["679593333241"]
+
+  filter {
+    name   = "name"
+    values = ["F5 BIGIP-14*PAYG*"]
+  }
+}
 
 resource "aws_instance" "f5bigip" {
-  ami                     = "${var.bigipami[var.bigip_region]}"
+  ami                     = "${data.aws_ami.latestbigip.id}"
   instance_type           = "t2.medium"
   key_name                = "${var.sshkeyname}"
   vpc_security_group_ids  = ["${aws_security_group.bigip-sg.id}"]
