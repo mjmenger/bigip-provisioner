@@ -12,7 +12,7 @@ resource "aws_security_group" "bigip-sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  # enable access for bigip console
+  # enable access for bigip console in single NIC
   ingress {
     from_port   = 8443
     to_port     = 8443
@@ -20,13 +20,14 @@ resource "aws_security_group" "bigip-sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  # enable application traffic access 
+  # enable access for bigip console
   ingress {
-    from_port   = 8443
-    to_port     = 8443
+    from_port   = 443
+    to_port     = 443
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
+
 
   # outbound internet access
   egress {
@@ -35,8 +36,6 @@ resource "aws_security_group" "bigip-sg" {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
-
-
 }
 
 # TODO: set the sensitive flag for greater security or use the random_password resource type
