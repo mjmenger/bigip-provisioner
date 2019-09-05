@@ -41,7 +41,7 @@ resource "aws_security_group" "bigip-sg" {
 
 # TODO: set the sensitive flag for greater security or use the random_password resource type
 # SUPERTODO: replace this with reference to Vault instance
-resource "random_password" "bigippassword" {
+resource "random_string" "bigippassword" {
   length = 16
   special = true
   override_special = "/@"
@@ -56,7 +56,7 @@ data "template_file" "vm_onboard" {
 
   vars = {
     uname        	      = "admin"
-    upassword        	  = "${random_password.bigippassword.result}"
+    upassword        	  = "${random_string.bigippassword.result}"
     DO_onboard_URL      = "${var.DO_onboard_URL}"
     AS3_URL		          = "${var.AS3_URL}"
     libs_dir		        = "${var.libs_dir}"

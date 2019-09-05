@@ -4,6 +4,6 @@ output "bigip_instance_dns" {
 }
 
 output "bigip_admin_password" {
-  value     = random_password.bigippassword.result
+  value     = random_string.bigippassword.result
   # sensitive = true
 }
