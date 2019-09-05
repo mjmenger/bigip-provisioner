@@ -1,5 +1,5 @@
 resource "aws_security_group" "bigip-sg" {
-  name   = "tfve_sg-${random_pet.securitygroup}"
+  name   = "tfve_sg-${random_pet.securitygroup.id}"
   vpc_id = "${var.bigip_vpc}"
   description = "used as part of terraform build and configuration"
 
