@@ -69,7 +69,7 @@ data "aws_ami" "latestbigip" {
 
   filter {
     name   = "name"
-    values = ["F5 BIGIP-14*PAYG*"]
+    values = ["F5 BIGIP-14*PAYG-Good 5Gbps*"]
   }
 }
 
