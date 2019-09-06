@@ -75,7 +75,7 @@ data "aws_ami" "latestbigip" {
 
 resource "aws_instance" "f5bigip" {
   ami                     = "${data.aws_ami.latestbigip.id}"
-  instance_type           = "t2.medium"
+  instance_type           = "c5.large"
   key_name                = "${var.sshkeyname}"
   vpc_security_group_ids  = ["${aws_security_group.bigip-sg.id}"]
   count                   = var.bigipcount
