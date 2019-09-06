@@ -51,7 +51,7 @@ curl -L  $DO_URL -o ${libs_dir}/$DO_FN
 
 echo -e "\n"$(date) "Download AS3 Pkg"
 curl -L  $AS3_URL -o ${libs_dir}/$AS3_FN
-sleep $management_interface_delay
+sleep ${management_interface_delay}
 
 # Copy the RPM Pkg to the file location
 cp ${libs_dir}/*.rpm /var/config/rest/downloads/
