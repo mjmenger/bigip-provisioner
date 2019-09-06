@@ -65,11 +65,3 @@ curl -u $CREDS -X POST http://localhost:8100/mgmt/shared/iapp/package-management
 DATA="{\"operation\":\"INSTALL\",\"packageFilePath\":\"/var/config/rest/downloads/$AS3_FN\"}"
 echo -e "\n"$(date) "Install AS3 Pkg"
 curl -u $CREDS -X POST http://localhost:8100/mgmt/shared/iapp/package-management-tasks -d $DATA
-
-#sleep 5
-
-#echo -e "\n"$(date) "Setup Cluster With Declarative Onboarding"
-#curl -k -u $CREDS -X POST https://localhost:8443/mgmt/shared/declarative-onboarding -d @/var/tmp/vm_do.json
-
-#echo -e "\n"$(date) "Configure HTTPS/HTTP Virtual with AS3"
-#curl -k -u $CREDS -X POST https://localhost:8443/mgmt/shared/appsvcs/declare -d @/var/tmp/as3.json
