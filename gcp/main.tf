@@ -1,4 +1,5 @@
 # main GCP BIGIP provisioning module
+# presumes that the provider is initialized in the caller
 
 # information found at 
 # https://github.com/F5Networks/f5-google-gdm-templates/blob/master/supported/standalone/1nic/
