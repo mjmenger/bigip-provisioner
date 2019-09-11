@@ -8,6 +8,10 @@ variable "bigip_region" {
     description = "AWS region where the bigip will reside"
 }
 
+variable "bigip_subnet" {
+  description = "Subnet where the bigip will reside"
+}
+
 variable "sshkeyname" {
     description = "name of AWS key pair to be used for authentication"
 }
