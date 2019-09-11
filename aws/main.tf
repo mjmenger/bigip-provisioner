@@ -51,7 +51,7 @@ resource "random_pet" "securitygroup" {
 }
 
 data "template_file" "vm_onboard" {
-  template = "${file("${path.module}/onboard.tpl")}"
+  template = "${file("${path.module}/../onboard.tpl")}"
 
   vars = {
     uname        	              = "admin"
@@ -64,9 +64,10 @@ data "template_file" "vm_onboard" {
   }
 }
 
+# find the relevant ami
 data "aws_ami" "latestbigip" {
   most_recent      = true
-  owners           = ["679593333241"]
+  owners           = ["679593333241"] #f5 id
 
   filter {
     name   = "name"
