@@ -1,7 +1,6 @@
 resource "aws_security_group" "bigip-sg" {
   name   = "tfve_sg-${random_pet.securitygroup.id}"
   vpc_id = "${var.bigip_vpc}"
-  subnet_id = "${var.bigip_subnet}"
   description = "used as part of terraform build and configuration"
 
   # enable SSH access in order to perform post build provisioning
@@ -81,6 +80,7 @@ resource "aws_instance" "f5bigip" {
   key_name                = "${var.sshkeyname}"
   vpc_security_group_ids  = ["${aws_security_group.bigip-sg.id}"]
   count                   = "${var.bigipcount}"
+  subnet_id = "${var.bigip_subnet}"
 
   tags = {
     Name = "disposablebigip${count.index}"
