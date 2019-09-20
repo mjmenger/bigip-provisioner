@@ -54,12 +54,14 @@ variable "declarativeonboardingpackagetarget" {
 }
 
 ## Please check and update the latest DO URL from https://github.com/F5Networks/f5-declarative-onboarding/releases
+# always point to a specific version in order to avoid inadvertent configuration inconsistency
 variable DO_onboard_URL	{ 
-  default = "https://github.com/F5Networks/f5-declarative-onboarding/releases/download/v1.5.0/f5-declarative-onboarding-1.5.0-11.noarch.rpm" 
+  default = "https://github.com/F5Networks/f5-declarative-onboarding/releases/download/v1.7.0/f5-declarative-onboarding-1.7.0-3.noarch.rpm" 
 }
 ## Please check and update the latest AS3 URL from https://github.com/F5Networks/f5-appsvcs-extension/releases/latest 
+# always point to a specific version in order to avoid inadvertent configuration inconsistency
 variable AS3_URL {
-  default = "https://github.com/F5Networks/f5-appsvcs-extension/releases/download/v3.12.0/f5-appsvcs-3.12.0-5.noarch.rpm" 
+  default = "https://github.com/F5Networks/f5-appsvcs-extension/releases/download/v3.14.0/f5-appsvcs-3.14.0-4.noarch.rpm" 
 }
 
 variable "libs_dir" {
